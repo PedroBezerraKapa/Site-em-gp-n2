@@ -1,0 +1,118 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body, html {
+  font-family: Arial, sans-serif;
+}
+
+/* Logo com borda */
+.icon {
+  border: 5px solid #75624f;
+  border-radius: 10px;
+}
+
+/* Cabeçalho */
+.header {
+  background: #CD853F;
+  padding: 5px;
+}
+
+/* Navegação principal */
+.nav {
+  max-width: 1280px;
+  height: 70px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Lista de links */
+.nav-list {
+  display: flex;
+  gap: 32px;
+  list-style: none;
+  padding-right: 30px;
+}
+
+.nav-list a {
+  font-size: 18px;
+  color: white;
+  text-decoration: none;
+  transition: 0.3s ease;
+}
+
+.nav-list a:hover {
+  opacity: 0.7;
+}
+
+/* Botão hambúrguer oculto por padrão */
+.amburg {
+  display: none;
+  border: none;
+  background: none;
+  border-top: 3px solid white;
+  width: 30px;
+  cursor: pointer;
+}
+
+.hero-section {
+  background-image: url("site da empresa.jpeg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+  padding: 50px; 
+}
+
+.glow-on-hover {
+    position: relative;
+    padding: 10px 20px;
+    font-size: 16px;
+    color: white;
+    background: #CD853F;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    overflow: visible;
+    z-index: 1;
+  }
+
+  .glow-on-hover::before {
+    content: '';
+    position: absolute;
+    top: -4px; left: -4px; right: -4px; bottom: -4px;
+    border-radius: 14px;
+    background: linear-gradient(
+      45deg,
+      #CD853F,
+      #d9a15a,
+      #a66f3c,
+      #d9a15a,
+      #CD853F
+    );
+    background-size: 400%;
+    filter: blur(6px);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    animation: glowing 8s linear infinite;
+    z-index: -1;
+  }
+
+  .glow-on-hover:hover::before {
+    opacity: 1;
+  }
+
+  @keyframes glowing {
+    0% {
+      background-position: 0 0;
+    }
+    50% {
+      background-position: 400% 0;
+    }
+    100% {
+      background-position: 0 0;
+    }

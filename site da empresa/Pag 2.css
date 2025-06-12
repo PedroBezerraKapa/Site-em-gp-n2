@@ -1,0 +1,191 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    font-family: sans-serif;
+}
+
+.a{
+    text-decoration: none;
+}
+
+.header{
+    background: #CD853F;
+    padding-inline: 16px;
+}
+
+nav {
+  max-width: 1280px;
+  height: 70px;
+  margin-inline: auto;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.hero {
+  background-image: url('./Assets/Images/poltrona-na-sala-verde-com-espaco-para-texto.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 100vh; /* garante altura mínima da tela toda */
+  padding: 40px 20px; /* pra dar espaço interno, ajusta se quiser */
+  box-sizing: border-box; /* para o padding não aumentar a altura além do esperado */
+}
+
+
+.amburg {
+  display: none; /* <-- escondido por padrão */
+  border: none;
+  background: none;
+  border-top: 3px solid white;
+  cursor: pointer;
+  width: 30px;
+}
+
+.amburg::before,
+.amburg::after {
+  content: "";
+  display: block;
+  width: 30px;
+  height: 3px;
+  background: white;
+  margin-top: 5px;
+}
+
+@media (max-width: 750px) {
+  .amburg {
+    display: block; /* <-- só aparece no mobile */
+  }
+}
+
+.cards-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; /* Centraliza as linhas */
+  gap: 20px; /* Espaço entre os cards */
+  max-width: 1000px; /* Limite da largura do container */
+  margin: 0 auto; /* Centralizar container na página */
+}
+
+.card {
+  position: relative;
+  width: 300px;
+  height: 200px;
+  background: linear-gradient(-45deg, #f89b29 0%, #ff0f7b 100%);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  transition: all 0.6s cubic-bezier(0.23, 1, 0.320, 1);
+  cursor: pointer;
+  margin: 10px; /* margem adicionada */
+}
+
+.card svg {
+  width: 48px;
+  fill: #333;
+  transition: all 0.6s cubic-bezier(0.23, 1, 0.320, 1);
+  z-index: 2;
+}
+
+.card:hover {
+  transform: rotate(-5deg) scale(1.1);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.card__content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-45deg);
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+  box-sizing: border-box;
+  background-color: #fff;
+  opacity: 0;
+  transition: all 0.6s cubic-bezier(0.23, 1, 0.320, 1);
+  z-index: 1;
+  border-radius: 10px;
+}
+
+.card:hover .card__content {
+  transform: translate(-50%, -50%) rotate(0deg);
+  opacity: 1;
+  z-index: 10;
+}
+
+.card__title {
+  margin: 0;
+  font-size: 24px;
+  color: #333;
+  font-weight: 700;
+}
+
+.card__description {
+  margin: 10px 0 0;
+  font-size: 14px;
+  color: #777;
+  line-height: 1.4;
+}
+
+.card:hover svg {
+  transform: rotate(-45deg);
+  scale: 0;
+  opacity: 0;
+  transition: all 0.6s cubic-bezier(0.23, 1, 0.320, 1);
+}
+.glow-on-hover {
+  position: relative;
+  padding: 10px 20px;
+  font-size: 16px;
+  color: white;
+  background: #CD853F;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  overflow: visible;
+  z-index: 1;
+}
+
+.glow-on-hover::before {
+  content: '';
+  position: absolute;
+  top: -4px; 
+  left: -4px; 
+  right: -4px; 
+  bottom: -4px;
+  border-radius: 14px;
+  background: linear-gradient(
+    45deg,
+    #CD853F,
+    #d9a15a,
+    #a66f3c,
+    #d9a15a,
+    #CD853F
+  );
+  background-size: 400%;
+  filter: blur(6px);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  animation: glowing 8s linear infinite;
+  z-index: -1;
+}
+
+.glow-on-hover:hover::before {
+  opacity: 1;
+}
+
+@keyframes glowing {
+  0% {
+    background-position: 0 0;
+  }
+  50% {
+    background-position: 400% 0;
+  }
+  100% {
+    background-position: 0 0;
+  }
+}
